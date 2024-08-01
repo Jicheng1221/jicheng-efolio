@@ -152,7 +152,7 @@ const austen = computed(() => {
 })
 
 const hightlightAuthorName = {
-  name : 'orwell',
+  // name : 'orwell',
   class:'highlight message'
 }
 
