@@ -7,7 +7,11 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="username">Username:</label>
-                            <input type="text" class="form-control" id="username" v-model="formData.username">
+                            <input type="text" class="form-control" id="username" 
+                              @blur="() => validateName(true)"
+                              @input="() => validateName(false)"
+                              v-model="formData.username">
+                            <div v-if="errors.username" class="text-danger">{{ errors.username }}</div>
                         </div>
                         <div class="col-md-6">
                             <label for="password">Password:</label>
@@ -74,9 +78,11 @@
     const submittedCards = ref([]);
     
     const submitForm = () => {
-        submittedCards.value.push({
-            ...formData.value
-        });
+        validateName(true);
+        if(!errors.value.username){
+        submittedCards.value.push({...formData.value});
+            clearForm();
+        }
     };
 
     const clearForm = () => {
@@ -86,8 +92,26 @@
             isAustralian:false,
             reason:'',
             gender:'',
+        };
+    };
+
+    const errors = ref({
+        username:null,
+        password:null,
+        resident:null,
+        gender:null,
+        reason:null,
+    });
+
+    const validateName = (blur) =>{
+        if(formData.value.username.length < 3) {
+            if(blur) errors.value.username = "Name must be at lease 3 characters";
+        }else{
+            errors.value.username = null;
         }
     }
+
+
 </script>
 
 <style scoped>
