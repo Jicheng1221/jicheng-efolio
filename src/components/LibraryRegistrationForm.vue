@@ -6,9 +6,11 @@ import Column from 'primevue/column'
 const formData = ref({
   username: '',
   password: '',
+  confirmPassword: '',
   isAustralian: false,
   reason: '',
-  gender: ''
+  gender: '',
+  suburb: 'Clayton'
 })
 
 const submittedCards = ref([])
@@ -29,7 +31,8 @@ const clearForm = () => {
     confirmPassword: '',
     isAustralian: false,
     reason: '',
-    gender: ''
+    gender: '',
+    suburb: 'Clayton'
   }
 }
 
@@ -58,6 +61,14 @@ const validateConfirmPassword = (blur) => {
     errors.value.confirmPassword = null
   }
 }
+
+const validateIncludeFriend = (blur) => {
+  if (formData.value.reason.includes('friend')) {
+    if (blur) errors.value.reasonIncludeFriend = 'Great to have a friend.'
+  } else {
+    errors.value.reasonIncludeFriend = null
+  }
+} 
 
 
 const validatePassword = (blur) => {
@@ -170,8 +181,19 @@ const validatePassword = (blur) => {
               id="reason"
               rows="3"
               v-model="formData.reason"
+              @blur="() => validateIncludeFriend(true)"
             ></textarea>
+            <div v-if="errors.reasonIncludeFriend" class="text-success">
+                {{ errors.reasonIncludeFriend }}
+              </div>
           </div>
+
+          <div class="mb-3">
+            <label for="reason" class="form-label">Suburb</label>
+            <input type="text" class="form-control" id="suburb" v-bind:value="formData.suburb" />
+          </div>
+
+
           <div class="text-center">
             <button type="submit" class="btn btn-primary me-2">Submit</button>
             <button type="button" class="btn btn-secondary" @click="clearForm">Clear</button>

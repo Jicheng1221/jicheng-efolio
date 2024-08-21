@@ -4,6 +4,7 @@
             <div class="col-md-8 offset-md-2">
                 <h1 class="text-center">User Information Form</h1>
                 <form @submit.prevent="submitForm">
+
                     <div class="row mb-3">
                         <div class="col-sm-6">
                             <label for="username">Username:</label>
@@ -22,6 +23,7 @@
                             <div v-if="errors.password" class="text-danger">{{ errors.password }}</div>
                         </div>
                     </div>
+
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <div class="form-check">
@@ -38,6 +40,8 @@
                             </select>
                         </div>
                     </div>
+
+
                     <div class="row mb-3">
                         <label for="reason" class="form-label">Reason For Joining:</label>
                         <textarea class="form-control" id="reason" name="reason" rows="3" v-model="formData.reason"></textarea>
