@@ -1,12 +1,22 @@
 <script setup>
 import JSON from './components/JSON.vue';
 import FORM from './components/Form.vue';
+import JSONLab from './components/JSONLab.vue'
+import BHeader from './components/BHeader.vue'
+import LibraryRegistrationForm from './components/LibraryRegistrationForm.vue'
 </script>
 
 <template>
+<header>
+    <BHeader />
+  </header>
 
+  <main>
+    <LibraryRegistrationForm />
+    <!-- <JSONLab /> -->
+  </main>
 <!-- <JSON></JSON> -->
-<FORM></FORM>
+<!-- <FORM></FORM> -->
 </template>
 
 <!-- <style scoped>
