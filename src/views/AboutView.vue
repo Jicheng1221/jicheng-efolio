@@ -10,9 +10,44 @@
         </div>
     </div>
   </template>
-  
-  <script setup>
-  // No script needed for now
+
+  <script>
+  export default {
+    name: 'About',
+    beforeRouteEnter(to, from, next) {
+      // Called before the route that renders this component is confirmed
+      next(vm => {
+        // Access to the component instance after navigation
+        vm.someMethod();
+      });
+    },
+    beforeRouteUpdate(to, from, next) {
+      // Called when the route that renders this component has changed
+      if (this.someCondition) {
+        next();
+      } else {
+        next(false); // Cancel the navigation
+      }
+    },
+    beforeRouteLeave(to, from, next) {
+      // Called when navigating away from the route that renders this component
+      if (this.unsavedChanges) {
+        const answer = window.confirm('You have unsaved changes. Do you really want to leave?');
+        if (answer) {
+          next();
+        } else {
+          next(false); // Cancel the navigation
+        }
+      } else {
+        next();
+      }
+    },
+    methods: {
+      someMethod() {
+        // Method that runs after navigation
+      }
+    }
+  };
   </script>
   
   <style scoped>
