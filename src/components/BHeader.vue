@@ -12,9 +12,12 @@
             Home (Week 5)
           </router-link>
         </li>
-        <!-- <li class="nav-item">
-          <router-link to="/about" class="nav-link" active-class="active">About</router-link>
-        </li> -->
+        <li class="nav-item">
+          <router-link to="/FireLogin" class="nav-link" active-class="active">Firebase Register</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/FirebaseSignin" class="nav-link" active-class="active">Firebase Signin</router-link>
+        </li>
       </ul>
     </header>
   </div>
