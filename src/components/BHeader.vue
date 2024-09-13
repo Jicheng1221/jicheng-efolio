@@ -18,6 +18,9 @@
         <li class="nav-item">
           <router-link to="/FirebaseSignin" class="nav-link" active-class="active">Firebase Signin</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/addbook" class="nav-link" active-class="active">Add Book</router-link>
+        </li>
       </ul>
     </header>
   </div>
