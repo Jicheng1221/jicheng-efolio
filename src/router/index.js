@@ -6,6 +6,7 @@ import { useAuth } from './islogin'
 import FirebaseRegister from '@/views/FirebaseRegisterView.vue'
 import FirebaseSignin from '@/views/FirebaseSigninView.vue'
 import AddBookView from '@/views/addBookView.vue'
+import GetBookCountView from '@/views/GetBookCountView.vue'
 
 const { isLogin } = useAuth()
 
@@ -39,6 +40,11 @@ const routes = [
     path: '/addbook',
     name: 'AddBook',
     component: AddBookView
+  },
+  {
+    path: '/GetBookCount',
+    name: 'GetBookCount',
+    component: GetBookCountView
   }
 ]
 
