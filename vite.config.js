@@ -14,11 +14,14 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  base: process.env.NODE_ENV === 'production'
+  ? '/jicheng-efolio/' // Replace with your GitHub repository name
+  : '/'
 })
 
-module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/jicheng-efolio/'
-    : '/'
-}
+// module.exports = {
+//   publicPath: process.env.NODE_ENV === 'production'
+//     ? '/jicheng-efolio/'
+//     : '/'
+// }
